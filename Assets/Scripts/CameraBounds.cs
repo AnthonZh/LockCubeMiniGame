@@ -27,7 +27,7 @@ public class CameraBounds : MonoBehaviour
             minX = b.min.x;
             maxX = b.max.x;
             minY = b.min.y;
-            maxY = b.max.y;
+            maxY = 100000;
         }
     }
 

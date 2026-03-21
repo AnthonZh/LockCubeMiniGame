@@ -292,6 +292,63 @@ Transform:
   - {fileID: 11662069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &135900619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540048120422342413, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651792847165718546, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
+      propertyPath: m_Name
+      value: Platform
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e97ea211130c65b6b734fb717824497, type: 3}
 --- !u!1 &263120912
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +917,7 @@ GameObject:
   - component: {fileID: 831977877}
   - component: {fileID: 831977879}
   - component: {fileID: 831977878}
+  - component: {fileID: 831977880}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -906,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time: 0.00'
+  m_text: 'Time: 00.00.00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 987d835e6e2d948889d13da352048680, type: 2}
   m_sharedMaterial: {fileID: -6963863560983871833, guid: 987d835e6e2d948889d13da352048680, type: 2}
@@ -986,6 +1044,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831977876}
   m_CullTransparentMesh: 1
+--- !u!114 &831977880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831977876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0171dc7803204e37b39102f7cb8d84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+  StateManager: {fileID: 0}
+  TimeText: {fileID: 0}
 --- !u!1 &1130489195
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1070,7 @@ GameObject:
   - component: {fileID: 1130489196}
   - component: {fileID: 1130489198}
   - component: {fileID: 1130489199}
+  - component: {fileID: 1130489200}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -1145,6 +1218,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500c1324763b46f469c956b36bc339cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityAPICalls
+--- !u!114 &1130489200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130489195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0171dc7803204e37b39102f7cb8d84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+  StateManager: {fileID: 1130489196}
+  TimeText: {fileID: 831977878}
 --- !u!1 &1322386017
 GameObject:
   m_ObjectHideFlags: 0
@@ -5044,3 +5131,4 @@ SceneRoots:
   - {fileID: 342705331}
   - {fileID: 2089515273}
   - {fileID: 517552558}
+  - {fileID: 135900619}
