@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -28,11 +29,16 @@ public class CameraBounds : MonoBehaviour
             minY = b.min.y;
             maxY = b.max.y;
         }
-        LateUpdate(); //LateUpdate once to start the camera in the correct position
     }
 
     void LateUpdate()
     {
+        UpdateCameraPosition();
+    }
+
+    void UpdateCameraPosition()
+    {
+        transform.SetParent(null);
         Vector3 pos = player.position;
         
         pos.x += 1.25f;

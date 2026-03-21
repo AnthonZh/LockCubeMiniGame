@@ -803,7 +803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
   GameOn: 0
   APICalls: {fileID: 1130489199}
-  audioSource: {fileID: 1130489198}
+  AudioSource: {fileID: 1130489198}
+  Camera: {fileID: 285846681}
 --- !u!4 &1130489197
 Transform:
   m_ObjectHideFlags: 0

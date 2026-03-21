@@ -51,5 +51,10 @@ public class PlayerController : MonoBehaviour
             grounded = true;
             PlayerAnimator.SetBool("Jumping", false);
         }
+
+        if(col.collider.tag == "Enemy")
+        {
+            StateManager.Reset();
+        }
     }
 }

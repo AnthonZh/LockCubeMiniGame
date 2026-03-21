@@ -1,38 +1,42 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     public bool GameOn;
     public UnityAPICalls APICalls;
-    public AudioSource audioSource; 
+    public AudioSource AudioSource;
+    public Camera Camera;
 
     void Start()
     {
-        Time.timeScale = 0.0f;
     }
 
     void Update()
     {
         if(!GameOn)
         {
-            if(Keyboard.current.anyKey.wasPressedThisFrame)
+            if(AnyInputPressed())
             {
-                Time.timeScale = 1.0f;
                 GameOn = true;
                 APICalls.StartGame();
-                audioSource.Play();
+                AudioSource.Play();
             }
         }        
     }
 
-    void Reset()
+    public void Reset()
     {
-        FadeOutAudio(audioSource, 5);
-        Thread.Sleep(5);
+        FadeOutAudio(AudioSource, 5);
+        
+        Invoke(nameof(ResetHelper), 5f);
+    }
+
+    void ResetHelper()
+    {
         APICalls.StopGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -51,4 +55,16 @@ public class GameStateManager : MonoBehaviour
         audioSource.volume = startVolume;
     }
 
+    bool AnyInputPressed()
+    {
+        foreach (var device in InputSystem.devices)
+        {
+            foreach (var control in device.allControls)
+            {
+                if (control is ButtonControl button && button.wasPressedThisFrame)
+                    return true;
+            }
+        }
+        return false;
+    }
 }
