@@ -1,6 +1,8 @@
-using System;
+using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -26,4 +28,27 @@ public class GameStateManager : MonoBehaviour
             }
         }        
     }
+
+    void Reset()
+    {
+        FadeOutAudio(audioSource, 5);
+        Thread.Sleep(5);
+        APICalls.StopGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static IEnumerator FadeOutAudio(AudioSource audioSource, float duration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
 }
