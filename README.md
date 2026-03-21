@@ -3,3 +3,6 @@ A Unity Minigame to be run on the LockCube when the user begins scrolling. The i
 
 ## AI Contribution
 Large Languages Models were used to assist in creating this Minigame. Claude AI was used for questions about certain Unity Contents, in particular input management and camera boundaries.
+
+## Attributions
+The [Pixel Adventure Assets](https://pixelfrog-assets.itch.io/pixel-adventure-1) used in this project were created by Pixel Frog under the Creative Commons Zero license. The font, [Press Font](https://www.fontspace.com/press-start-2p-font-f11591) designed by codeman38 is licensed under the SIL Open Font License.
