@@ -7,11 +7,15 @@ public class SawScript : MonoBehaviour
     public float speed = 3f;
     public float waypointThreshold = 0.2f;
 
+    public bool moving = true;
+
     private int currentWaypoint = 0;
 
     // Update is called once per frame
     void Update()
     {
+        if (!moving) return;
+
         Transform target = Transforms[currentWaypoint];
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, target.position) <= waypointThreshold)

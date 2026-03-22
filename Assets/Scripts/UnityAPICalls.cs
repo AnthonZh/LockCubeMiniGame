@@ -4,8 +4,8 @@ using System.Collections;
 
 public class UnityAPICalls : MonoBehaviour
 {
-    private readonly string StartEndpoint = "127.0.0.1:5001/game/start";
-    private readonly string StopEndpoint = "127.0.0.1:5001/game/stop";
+    private readonly string StartEndpoint = "http://127.0.0.1:5001/game/start";
+    private readonly string StopEndpoint = "http://127.0.0.1:5001/game/stop";
 
     public void StartGame()
     {

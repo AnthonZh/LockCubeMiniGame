@@ -56,4 +56,9 @@ public class PlayerController : MonoBehaviour
             StateManager.Reset();
         }
     }
+
+    public void SetGrounded(bool grounded)
+    {
+        this.grounded = grounded;
+    }
 }
