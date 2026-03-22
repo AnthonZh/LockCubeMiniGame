@@ -65,12 +65,12 @@ public class GameStateManager : MonoBehaviour
 
     public void Win()
     {
-        foreach (var rb in FindObjectsOfType<Rigidbody2D>())
+        foreach (var rb in FindObjectsByType<Rigidbody2D>(FindObjectsSortMode.None))
         {
             rb.simulated = false;
         }
 
-        foreach (var saw in FindObjectsOfType<SawScript>())
+        foreach (var saw in FindObjectsByType<SawScript>(FindObjectsSortMode.None))
         {
             saw.moving = false;
         }

@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     public Animator PlayerAnimator;
     public float speed = 5f;
     private bool grounded = false;
-    void Start()
-    {
-        
-    }
+
+    [Header("Sound Effects")]
+    public AudioSource PlayerRunning;
+    public AudioSource PlayerSounds;
+    public AudioClip RunClip;
+    public AudioClip JumpClip;
+    public AudioClip LandClip;
 
     void Update()
     {
@@ -30,8 +33,17 @@ public class PlayerController : MonoBehaviour
             else if (moveX > 0) PlayerSprite.flipX = false;
 
             //Handle Animations
-            if(moveX == 0) PlayerAnimator.SetBool("Running", false);
-            else PlayerAnimator.SetBool("Running", true);
+            if(moveX == 0 || !grounded) {
+                PlayerAnimator.SetBool("Running", false);
+                PlayerRunning.Stop();
+            }
+            else
+            {
+                PlayerAnimator.SetBool("Running", true);
+                // Loop run sound
+                if(!PlayerRunning.isPlaying && grounded)
+                    PlayerRunning.Play();
+            }
 
             //Handle Jumping
             if(grounded && jumped)
@@ -39,6 +51,8 @@ public class PlayerController : MonoBehaviour
                 PlayerAnimator.SetBool("Jumping", true);
                 PlayerBody.AddForceY(15f, ForceMode2D.Impulse);
                 grounded = false;
+                PlayerRunning.Stop();
+                PlayerSounds.PlayOneShot(JumpClip);
             }
         }
     }
@@ -49,11 +63,24 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
             PlayerAnimator.SetBool("Jumping", false);
+            PlayerSounds.PlayOneShot(LandClip);
         }
 
         if(col.collider.tag == "Enemy")
         {
+            PlayerSounds.Stop();
+            PlayerRunning.Stop();
             StateManager.Reset();
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if(col.collider.tag == "Ground")
+        {
+            grounded = false;
+            PlayerAnimator.SetBool("Jumping", true);
+            PlayerRunning.Stop();
         }
     }
 
