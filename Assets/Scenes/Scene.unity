@@ -1011,7 +1011,7 @@ MonoBehaviour:
   PlayerRunning: {fileID: 846260642}
   PlayerSounds: {fileID: 1357879940}
   RunClip: {fileID: 8300000, guid: 9a62ec44ecdd9ee0a8d5eff4d9cdbf1d, type: 3}
-  JumpClip: {fileID: 8300000, guid: eb87be60177e46a0f806555c5a96a072, type: 3}
+  JumpClip: {fileID: 8300000, guid: b73ac8a53ec8a40aeb34a12b70b02afd, type: 3}
   LandClip: {fileID: 8300000, guid: 8683e1343d79b8d27a1e368790e02a01, type: 3}
 --- !u!61 &505469945
 BoxCollider2D:
@@ -7761,9 +7761,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1805784226393894724, guid: e86fecb69bc5322b796f6023216422d4, type: 3}
+      propertyPath: Boing
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bce1bee9ee86da5882bc319a3c8bc88, type: 3}
+    - target: {fileID: 1805784226393894724, guid: e86fecb69bc5322b796f6023216422d4, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 505469944}
+    - target: {fileID: 1805784226393894724, guid: e86fecb69bc5322b796f6023216422d4, type: 3}
+      propertyPath: BoingPlayer
+      value: 
+      objectReference: {fileID: 1357879940}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
