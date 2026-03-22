@@ -50,4 +50,9 @@ public class CameraBounds : MonoBehaviour
 
         transform.position = pos;
     }
+
+    void OnRenderImage(RenderTexture src, RenderTexture dest)
+    {
+        Graphics.Blit(src, dest);
+    }
 }
