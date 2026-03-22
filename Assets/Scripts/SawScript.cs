@@ -5,7 +5,7 @@ public class SawScript : MonoBehaviour
     public Transform[] Transforms = new Transform[4];
 
     public float speed = 3f;
-    public float waypointThreshold = 0.05f;
+    public float waypointThreshold = 0.2f;
 
     private int currentWaypoint = 0;
 

@@ -8,10 +8,10 @@ public class TimeManager : MonoBehaviour
 {
     public GameStateManager StateManager;
     public TMP_Text TimeText;
-    Stopwatch stopwatch;
+    Stopwatch stopwatch = new Stopwatch();
     void Start()
     {
-        stopwatch = new Stopwatch();
+
     }
 
     // Update is called once per frame

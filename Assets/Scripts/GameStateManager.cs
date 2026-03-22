@@ -11,16 +11,20 @@ public class GameStateManager : MonoBehaviour
     public AudioSource AudioSource;
     public Camera Camera;
 
+    bool alreadyPlayed = false;
+
     void Start()
     {
+        Time.timeScale = 0.0f;
     }
 
     void Update()
     {
-        if(!GameOn)
+        if(!alreadyPlayed && !GameOn)
         {
             if(AnyInputPressed())
             {
+                Time.timeScale = 1.0f;
                 GameOn = true;
                 APICalls.StartGame();
                 AudioSource.Play();
@@ -30,6 +34,8 @@ public class GameStateManager : MonoBehaviour
 
     public void Reset()
     {
+        GameOn = false;
+        alreadyPlayed = true;
         FadeOutAudio(AudioSource, 5);
         
         Invoke(nameof(ResetHelper), 5f);

@@ -1,4 +1,3 @@
-using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
             if(grounded && jumped)
             {
                 PlayerAnimator.SetBool("Jumping", true);
-                PlayerBody.AddForceY(7.5f, ForceMode2D.Impulse);
+                PlayerBody.AddForceY(15f, ForceMode2D.Impulse);
                 grounded = false;
             }
         }
